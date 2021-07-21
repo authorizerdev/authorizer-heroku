@@ -76,6 +76,9 @@
     "REDIS_URL": {
       "description": "Redis URL used for persisting user session. If not configured session will be persisted in memory. Note: In memory sessions will not be persisted across server restart and not recommended for production",
       "required": false
+    },
+    "YAUTH_ADMIN_SECRET": {
+      "description": "YAuth admin secret, used to access master data"
     }
   },
   "stack": "container",
