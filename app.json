@@ -1,0 +1,78 @@
+{
+  "name": "YAuth Server",
+  "description": "open source authentication and authorization solution for your applications.  Bring your database and have complete control over the authentication, authorization and user data.",
+  "keywords": [
+    "authentication",
+    "api",
+    "graphql",
+    "heroku",
+    "postgres",
+    "authorization",
+    "yauth"
+  ],
+  "success_url": "/",
+  "website": "https://yauth.netlify.com",
+  "repository": "https://github.com/hasura/graphql-engine-heroku",
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "env": {
+    "SMTP_HOST": {
+      "description": "SMTP Host for sending emails for verification",
+      "value": "smtp.gmail.com"
+    },
+    "SMTP_PORT": {
+      "description": "SMTP Port used by SMTP host",
+      "value": "587"
+    },
+    "SENDER_EMAIL": {
+      "description": "Email using which the password should be sent"
+    },
+    "SENDER_PASSWORD": {
+      "description": "Password for the above mentioned email"
+    },
+    "JWT_TYPE": {
+      "description": "JWT encryption type",
+      "value": "HS256"
+    },
+    "JWT_SECRET": {
+      "description": "Random string that can will be used for encryption the jwt token"
+    },
+    "FRONTEND_URL": {
+      "description": "Your web application URL",
+      "value": "https://"
+    },
+    "SERVER_URL": {
+      "description": "Server URL. For heroku this will Your https://heroku_name.herokuapp.com",
+      "value": "https://herokuapp.com"
+    },
+    "FORGOT_PASSWORD_URI": {
+      "description": "URI for the forgot password page in your web application",
+      "value": "reset-password"
+    },
+    "COOKIE_NAME": {
+      "description": "Name for the cookie",
+      "value": "yauth"
+    },
+    "GOOGLE_CLIENT_ID": {
+      "description": "Google client ID for google login"
+    },
+    "GOOGLE_CLIENT_SECRET": {
+      "description": "Google client secret for google login"
+    },
+    "GITHUB_CLIENT_ID": {
+      "description": "Github client ID for github login "
+    },
+    "GITHUB_CLIENT_SECRET": {
+      "description": "Github client secret for github login "
+    }
+  },
+  "stack": "container",
+  "addons": [
+    {
+      "plan": "heroku-postgresql:hobby-dev"
+    }
+  ]
+}
