@@ -38,7 +38,8 @@
       "value": "HS256"
     },
     "JWT_SECRET": {
-      "description": "Random string that can will be used for encryption the jwt token"
+      "description": "Random string that can will be used for encryption the jwt token",
+      "generator": "secret"
     },
     "FRONTEND_URL": {
       "description": "Your web application URL",
@@ -57,16 +58,24 @@
       "value": "yauth"
     },
     "GOOGLE_CLIENT_ID": {
-      "description": "Google client ID for google login"
+      "description": "Google client ID for google login",
+      "required": false
     },
     "GOOGLE_CLIENT_SECRET": {
-      "description": "Google client secret for google login"
+      "description": "Google client secret for google login",
+      "required": false
     },
     "GITHUB_CLIENT_ID": {
-      "description": "Github client ID for github login "
+      "description": "Github client ID for github login",
+      "required": false
     },
     "GITHUB_CLIENT_SECRET": {
-      "description": "Github client secret for github login "
+      "description": "Github client secret for github login",
+      "required": false
+    },
+    "REDIS_URL": {
+      "description": "Redis URL used for persisting user session. If not configured session will be persisted in memory. Note: In memory sessions will not be persisted across server restart and not recommended for production",
+      "required": false
     }
   },
   "stack": "container",
