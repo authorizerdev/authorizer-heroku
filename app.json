@@ -19,6 +19,9 @@
     }
   },
   "env": {
+    "HEROKU_APP_NAME": {
+      "required": true
+    },
     "SMTP_HOST": {
       "description": "SMTP Host for sending emails for verification",
       "value": "smtp.gmail.com",
