@@ -1,5 +1,5 @@
 {
-  "name": "YAuth Server",
+  "name": "Authorizer",
   "description": "open source authentication and authorization solution for your applications.  Bring your database and have complete control over the authentication, authorization and user data.",
   "keywords": [
     "authentication",
@@ -8,11 +8,11 @@
     "heroku",
     "postgres",
     "authorization",
-    "yauth"
+    "authorizer"
   ],
   "success_url": "/",
-  "website": "https://yauth.netlify.com",
-  "repository": "https://github.com/hasura/graphql-engine-heroku",
+  "website": "https://github.com/authorizerdev/authorizer",
+  "repository": "https://github.com/authorizerdev/authorizer-heroku",
   "formation": {
     "web": {
       "quantity": 1
@@ -84,8 +84,8 @@
       "description": "Redis URL used for persisting user session. If not configured session will be persisted in memory. Note: In memory sessions will not be persisted across server restart and not recommended for production",
       "required": false
     },
-    "ROOT_SECRET": {
-      "description": "YAuth admin secret, used to access master data",
+    "ADMIN_SECRET": {
+      "description": "Authorizer admin secret, used to access master data",
       "generator": "secret"
     },
     "DISABLE_EMAIL_VERICATION": {
