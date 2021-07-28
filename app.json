@@ -86,7 +86,8 @@
       "generator": "secret"
     },
     "DISABLE_EMAIL_VERICATION": {
-      "description": "Option to disable email verification while signing up. When you want to test a demo without setting up SMTP"
+      "description": "Option to disable email verification while signing up. When you want to test a demo without setting up SMTP",
+      "value": "true"
     }
   },
   "stack": "container",
