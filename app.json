@@ -21,17 +21,21 @@
   "env": {
     "SMTP_HOST": {
       "description": "SMTP Host for sending emails for verification",
-      "value": "smtp.gmail.com"
+      "value": "smtp.gmail.com",
+      "required": false
     },
     "SMTP_PORT": {
       "description": "SMTP Port used by SMTP host",
-      "value": "587"
+      "value": "587",
+      "required": false
     },
     "SENDER_EMAIL": {
-      "description": "Email using which the password should be sent"
+      "description": "Email using which the password should be sent",
+      "required": false
     },
     "SENDER_PASSWORD": {
-      "description": "Password for the above mentioned email"
+      "description": "Password for the above mentioned email",
+      "required": false
     },
     "JWT_TYPE": {
       "description": "JWT encryption type",
@@ -45,7 +49,7 @@
       "description": "Your web application URL",
       "value": "https://"
     },
-    "SERVER_URL": {
+    "AUTHORIZER_DOMAIN": {
       "description": "Server URL. For heroku this will Your https://heroku_name.herokuapp.com",
       "value": "https://herokuapp.com"
     },
@@ -55,7 +59,7 @@
     },
     "COOKIE_NAME": {
       "description": "Name for the cookie",
-      "value": "yauth"
+      "value": "authorizer"
     },
     "GOOGLE_CLIENT_ID": {
       "description": "Google client ID for google login",
@@ -77,8 +81,12 @@
       "description": "Redis URL used for persisting user session. If not configured session will be persisted in memory. Note: In memory sessions will not be persisted across server restart and not recommended for production",
       "required": false
     },
-    "YAUTH_ADMIN_SECRET": {
-      "description": "YAuth admin secret, used to access master data"
+    "ROOT_SECRET": {
+      "description": "YAuth admin secret, used to access master data",
+      "generator": "secret"
+    },
+    "DISABLE_EMAIL_VERICATION": {
+      "description": "Option to disable email verification while signing up. When you want to test a demo without setting up SMTP"
     }
   },
   "stack": "container",

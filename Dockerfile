@@ -1,3 +1,3 @@
-FROM lakhansamani/yauth:0.1.0-beta.2
+FROM lakhansamani/authorizer:0.1.0-beta.0
 
-CMD ./server -db_url $DATABASE_URL -db_type "postgres"
+CMD ./server -database_url $DATABASE_URL -databse_type "postgres" -authorizer_domain "https://${HEROKU_APP_NAME}.herokuapp.com"
