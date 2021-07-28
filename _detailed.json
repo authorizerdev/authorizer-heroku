@@ -1,0 +1,102 @@
+{
+  "name": "Authorizer",
+  "description": "open source authentication and authorization solution for your applications.  Bring your database and have complete control over the authentication, authorization and user data.",
+  "keywords": [
+    "authentication",
+    "api",
+    "graphql",
+    "heroku",
+    "postgres",
+    "authorization",
+    "authorizer"
+  ],
+  "success_url": "/",
+  "website": "https://github.com/authorizerdev/authorizer",
+  "repository": "https://github.com/authorizerdev/authorizer-heroku",
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "env": {
+    "HEROKU_APP_NAME": {
+      "required": true
+    },
+    "SMTP_HOST": {
+      "description": "SMTP Host for sending emails for verification",
+      "value": "smtp.gmail.com",
+      "required": false
+    },
+    "SMTP_PORT": {
+      "description": "SMTP Port used by SMTP host",
+      "value": "587",
+      "required": false
+    },
+    "SENDER_EMAIL": {
+      "description": "Email using which the password should be sent",
+      "required": false
+    },
+    "SENDER_PASSWORD": {
+      "description": "Password for the above mentioned email",
+      "required": false
+    },
+    "JWT_TYPE": {
+      "description": "JWT encryption type",
+      "value": "HS256"
+    },
+    "JWT_SECRET": {
+      "description": "Random string that can will be used for encryption the jwt token",
+      "generator": "secret"
+    },
+    "FRONTEND_URL": {
+      "description": "Your web application URL",
+      "value": "https://"
+    },
+    "AUTHORIZER_DOMAIN": {
+      "description": "Server URL. For heroku this will Your https://heroku_name.herokuapp.com",
+      "value": "https://herokuapp.com"
+    },
+    "FORGOT_PASSWORD_URI": {
+      "description": "URI for the forgot password page in your web application",
+      "value": "reset-password"
+    },
+    "COOKIE_NAME": {
+      "description": "Name for the cookie",
+      "value": "authorizer"
+    },
+    "GOOGLE_CLIENT_ID": {
+      "description": "Google client ID for google login",
+      "required": false
+    },
+    "GOOGLE_CLIENT_SECRET": {
+      "description": "Google client secret for google login",
+      "required": false
+    },
+    "GITHUB_CLIENT_ID": {
+      "description": "Github client ID for github login",
+      "required": false
+    },
+    "GITHUB_CLIENT_SECRET": {
+      "description": "Github client secret for github login",
+      "required": false
+    },
+    "REDIS_URL": {
+      "description": "Redis URL used for persisting user session. If not configured session will be persisted in memory. Note: In memory sessions will not be persisted across server restart and not recommended for production",
+      "required": false
+    },
+    "ADMIN_SECRET": {
+      "description": "Authorizer admin secret, used to access master data",
+      "generator": "secret"
+    },
+    "DISABLE_EMAIL_VERICATION": {
+      "description": "Option to disable email verification while signing up. When you want to test a demo without setting up SMTP",
+      "value": "true"
+    }
+  },
+  "stack": "container",
+  "addons": [
+    {
+      "plan": "heroku-postgresql:hobby-dev"
+    }
+  ]
+}
