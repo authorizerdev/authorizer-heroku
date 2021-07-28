@@ -6,4 +6,4 @@ Deploy authorizer Server with Postgres DB on Heroku and get a authorizer GraphQL
 
 
 [![Deploy to
-Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/authorizerdev/authorizer-heroku){:target="_blank" rel="noopener"}
+Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/authorizerdev/authorizer-heroku)
