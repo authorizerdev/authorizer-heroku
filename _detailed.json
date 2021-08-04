@@ -52,7 +52,7 @@
       "description": "Your web application URL",
       "value": "https://"
     },
-    "AUTHORIZER_DOMAIN": {
+    "AUTHORIZER_URL": {
       "description": "Server URL. For heroku this will Your https://heroku_name.herokuapp.com",
       "value": "https://herokuapp.com"
     },
