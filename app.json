@@ -19,10 +19,6 @@
     }
   },
   "env": {
-    "JWT_TYPE": {
-      "description": "JWT encryption type",
-      "value": "HS256"
-    },
     "JWT_SECRET": {
       "description": "Random string that can will be used for encryption the jwt token",
       "generator": "secret"
