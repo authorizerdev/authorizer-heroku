@@ -57,11 +57,13 @@
 		},
 		"FORGOT_PASSWORD_URI": {
 			"description": "URI for the forgot password page in your web application",
-			"value": "reset-password"
+			"value": "reset-password",
+			"required": false
 		},
 		"COOKIE_NAME": {
 			"description": "Name for the cookie",
-			"value": "authorizer"
+			"value": "authorizer",
+			"required": false
 		},
 		"GOOGLE_CLIENT_ID": {
 			"description": "Google client ID for google login",
