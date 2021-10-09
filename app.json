@@ -65,6 +65,14 @@
 			"value": "authorizer",
 			"required": false
 		},
+		"FACEBOOK_CLIENT_ID": {
+			"description": "Facebook client ID for facebook login",
+			"required": false
+		},
+		"FACEBOOK_CLIENT_SECRET": {
+			"description": "Facebook client secret for facebook login",
+			"required": false
+		},
 		"GOOGLE_CLIENT_ID": {
 			"description": "Google client ID for google login",
 			"required": false
@@ -85,9 +93,38 @@
 			"description": "Redis URL used for persisting user session. If not configured session will be persisted in memory. Note: In memory sessions will not be persisted across server restart and not recommended for production",
 			"required": false
 		},
-		"DISABLE_EMAIL_VERICATION": {
+		"DISABLE_EMAIL_VERIFICATION": {
 			"description": "Option to disable email verification during sign up process. This is helpful when you want to test a demo without setting up SMTP. If you set this to false, please configure SMTP env variables. For more information Read docs.",
-			"value": "true"
+			"value": "true",
+			"required": false
+		},
+		"ALLOWED_ORIGINS": {
+			"description": "Whitelist the URL for which this instance of authorizer is allowed",
+			"value": "*"
+		},
+		"RESET_PASSWORD_URL": {
+			"description": "URL where user is required to be redirected for password change",
+			"value": "/reset-password"
+		},
+		"ROLES": {
+			"description": "Comma separated list of roles that platform supports",
+			"value": "user,admin"
+		},
+		"DEFAULT_ROLE": {
+			"description": "Default role that should be assigned to user. It should be one from the list of `ROLES` env.",
+			"value": "user"
+		},
+		"JWT_ROLE_CLAIM": {
+			"description": "JWT key to be used to validate the role field.",
+			"value": "role"
+		},
+		"ORGANIZATION_NAME": {
+			"description": "Your organization name. Default value is Authorizer. This is used in email and default login page",
+			"required": false
+		},
+		"ORGANIZATION_LOGO": {
+			"description": "Your organization logo. Default is Authorizer logo. This is used in email and default login page.",
+			"required": false
 		}
 	},
 	"stack": "container",
