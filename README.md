@@ -7,7 +7,7 @@ Deploy Authorizer using [heroku](https://github.com/authorizerdev/authorizer-her
 
 After click the above button you will see screen as below, follow the steps mentioned below:
 
-<img src="https://docs.authorizer.dev/images/heroku.png" style="height:20em;width:100%;object-fit:contain;"/>
+<img src="https://docs.authorizer.dev/images/heroku.png" style="height:20em;"/>
 
 ## Step 1: Enter the App name
 
