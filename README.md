@@ -20,3 +20,46 @@ Select the region you want to deploy you application in. Heroku supports United 
 ## Step 3: Configure the Environment Variables
 
 Required envs are pre-configured, but based on the production and social logins, please configure the environment variables. Please refer to [environment variables docs](/core/env) for more information
+
+# Updating Authorizer to latest version on existing Heroku instance
+
+## Pre requisites
+
+- [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
+- [Git](https://git-scm.com/downloads)
+
+## Step 1: Clone Authorizer Heroku App
+
+The Authorizer app with Heroku buildpack/configuration is available at: https://github.com/authorizerdev/authorizer-heroku.
+
+Clone the above repository.
+
+```sh
+git clone https://github.com/authorizerdev/authorizer-heroku
+cd authorizer-heroku
+```
+
+If you already have this, then pull the latest changes which will have the updated GraphQL engine Docker image.
+
+## Step 2: Attach Heroku app
+
+Let’s say your Heroku app is called authorizer-heroku and is running on https://authorizer-heroku.herokuapp.com.
+
+From inside the graphql-engine-heroku directory, use the Heroku CLI to configure the git repo you cloned in Step 1 to be able to push to this app.
+
+```sh
+# Replace <authorizer-heroku> with your Heroku app's name
+
+heroku git:remote -a <authorizer-heroku>
+heroku stack:set container -a <authorizer-heroku>
+```
+
+You can find your Heroku git repo in your Heroku - Settings - Info - Heroku Git URL
+
+## Step 3: git push to deploy the latest Authorizer GraphQL engine
+
+When you git push to deploy, the Heroku app will get updated with the latest changes:
+
+```sh
+git push heroku main
+```
