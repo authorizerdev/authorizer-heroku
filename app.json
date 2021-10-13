@@ -20,11 +20,18 @@
 		}
 	},
 	"env": {
+		"DATABASE_URL": {
+			"description": "Database URL where you want to save the auth data",
+			"value": "data.db"
+		},
+		"DATABASE_TYPE": {
+			"description": "Database type which you want to connect with. Currently supports sqlite, mysql, postgres",
+			"value": "sqlite"
+		},
 		"ADMIN_SECRET": {
 			"description": "Authorizer admin secret, used to access master data",
 			"generator": "secret"
 		},
-
 		"SMTP_HOST": {
 			"description": "SMTP Host for sending emails for verification",
 			"value": "smtp.gmail.com",
@@ -108,9 +115,13 @@
 		},
 		"ROLES": {
 			"description": "Comma separated list of roles that platform supports",
-			"value": "user,admin"
+			"value": "user,supplier"
 		},
-		"DEFAULT_ROLE": {
+		"PROTECTED_ROLES": {
+			"description": "Comma separated list of protected roles for which sign-up is disabled",
+			"value": "admin"
+		},
+		"DEFAULT_ROLES": {
 			"description": "Default role that should be assigned to user. It should be one from the list of `ROLES` env.",
 			"value": "user"
 		},
@@ -127,10 +138,5 @@
 			"required": false
 		}
 	},
-	"stack": "container",
-	"addons": [
-		{
-			"plan": "heroku-postgresql:hobby-dev"
-		}
-	]
+	"stack": "container"
 }
