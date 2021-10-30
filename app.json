@@ -136,6 +136,10 @@
 		"ORGANIZATION_LOGO": {
 			"description": "Your organization logo. Default is Authorizer logo. This is used in email and default login page.",
 			"required": false
+		},
+		"CUSTOM_ACCESS_TOKEN_SCRIPT": {
+			"description": "Javascript function written in ES5 to add custom data to access token. This is useful while using tools like Hasura where you can give role base access to users based on JWT tokens",
+			"required": false
 		}
 	},
 	"stack": "container"
