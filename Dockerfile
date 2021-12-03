@@ -1,3 +1,3 @@
-FROM lakhansamani/authorizer:0.1.0
+FROM lakhansamani/authorizer:0.2.0
 
 CMD ./build/server
