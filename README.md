@@ -1,7 +1,8 @@
 # Authorizer Server on Heroku
 
 Deploy Authorizer using [heroku](https://github.com/authorizerdev/authorizer-heroku) with Postgres database for free and quickly play with it in 30seconds
-<br/>
+
+> Note: In case if you have paid heroku version and want to deploy authorizer with postgres and redis, please checkout button on this [branch](https://github.com/authorizerdev/authorizer-heroku/tree/with-postgres-redis)
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/authorizerdev/authorizer-heroku)
 
