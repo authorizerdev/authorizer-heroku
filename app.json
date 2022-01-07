@@ -43,11 +43,15 @@
 			"required": false
 		},
 		"SENDER_EMAIL": {
-			"description": "Email using which the password should be sent",
+			"description": "Email using which verification mail are sent",
 			"required": false
 		},
-		"SENDER_PASSWORD": {
-			"description": "Password for the above mentioned email",
+		"SMTP_PASSWORD": {
+			"description": "Password / Key of your smtp provider",
+			"required": false
+		},
+		"SMTP_USERNAME": {
+			"description": "Username of your smtp provider",
 			"required": false
 		},
 		"JWT_TYPE": {
