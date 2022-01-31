@@ -19,16 +19,7 @@
 			"quantity": 1
 		}
 	},
-	"env": {
-		"DATABASE_URL": {
-			"description": "Database URL where you want to save the auth data",
-			"value": "data.db"
-		},
-		"DATABASE_TYPE": {
-			"description": "Database type which you want to connect with. Currently supports sqlite, mysql, postgres",
-			"value": "sqlite"
-		}
-	},
+	"env": {},
 	"addons": ["heroku-postgresql"],
 	"stack": "container"
 }
