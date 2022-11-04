@@ -1,3 +1,3 @@
-FROM lakhansamani/authorizer:1.1.24
+FROM lakhansamani/authorizer:1.1.25
 
 CMD ./build/server --database_url $DATABASE_URL --database_type "postgres"
