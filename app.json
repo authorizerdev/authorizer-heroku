@@ -19,7 +19,12 @@
 			"quantity": 1
 		}
 	},
+<<<<<<< HEAD
 	"addons": ["heroku-postgresql", "heroku-redis"],
 	"env": {},
+=======
+	"env": {},
+	"addons": ["heroku-postgresql"],
+>>>>>>> 212980be83e0677aa3e3ef94785c394aaff91a31
 	"stack": "container"
 }
