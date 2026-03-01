@@ -19,7 +19,36 @@
 			"quantity": 1
 		}
 	},
-	"env": {},
 	"addons": ["heroku-postgresql"],
+	"env": {
+		"DATABASE_TYPE": {
+			"description": "Database type (e.g. postgres, mysql). Must match your DATABASE_URL.",
+			"value": "postgres",
+			"required": true
+		},
+		"CLIENT_ID": {
+			"description": "OAuth / application client ID from your identity provider or Authorizer dashboard.",
+			"required": true
+		},
+		"CLIENT_SECRET": {
+			"description": "OAuth / application client secret. Keep this secret and do not commit it.",
+			"required": true
+		},
+		"JWT_TYPE": {
+			"description": "JWT signing algorithm (e.g. HS256, RS256).",
+			"value": "HS256",
+			"required": true
+		},
+		"JWT_SECRET": {
+			"description": "Secret used to sign and verify JWTs. Use a long random string.",
+			"generator": "secret",
+			"required": true
+		},
+		"ADMIN_SECRET": {
+			"description": "Secret for admin API access. Keep this secret and do not commit it.",
+			"generator": "secret",
+			"required": true
+		}
+	},
 	"stack": "container"
 }
