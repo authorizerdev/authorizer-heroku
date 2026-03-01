@@ -1,14 +1,8 @@
 # Authorizer Server on Heroku
 
-Deploy Authorizer using [heroku](https://github.com/authorizerdev/authorizer-heroku) with Postgres database for free and quickly play with it in 30seconds
-
-<<<<<<< HEAD
-[![Deploy to Heroku with postgres & redis](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/authorizerdev/authorizer-heroku/tree/with-postgres-redis)
-=======
-> Note: In case if you have paid heroku version and want to deploy authorizer with postgres and redis, please checkout button on this [branch](https://github.com/authorizerdev/authorizer-heroku/tree/with-postgres-redis)
+Deploy production ready [authorizer.dev](https://authorizer.dev) instance using [heroku](https://heroku.com) with [PostgreSQL](https://github.com/authorizerdev/authorizer-heroku) and Redis and build with it in 30seconds
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/authorizerdev/authorizer-heroku)
->>>>>>> 212980be83e0677aa3e3ef94785c394aaff91a31
 
 After click the above button you will see screen as below, follow the steps mentioned below:
 
@@ -24,47 +18,15 @@ Select the region you want to deploy you application in. Heroku supports United 
 
 ## Step 3: Configure the Environment Variables
 
-Required envs are pre-configured, but based on the production and social logins, please configure the environment variables. Please refer to [environment variables docs](/core/env) for more information
+Required envs are pre-configured, but based on the production and social logins, please configure the environment variables. Please refer to [environment variables docs](https://docs.authorizer.dev/core/env) for more information
 
-# Updating Authorizer to latest version on existing Heroku instance
+## 📝 Notes
 
-## Pre requisites
+- Source repo: https://github.com/authorizerdev/authorizer
+- Docs: https://docs.authorizer.dev/deployment/heroku/
 
-- [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
-- [Git](https://git-scm.com/downloads)
+### Updating Authorizer on existing Heroku instance
 
-## Step 1: Clone Authorizer Heroku App
+- You can update the [docker image](https://github.com/authorizerdev/authorizer-heroku/blob/main/Dockerfile#L2) to the desired version in your repository which gets created with your deployment.
 
-The Authorizer app with Heroku buildpack/configuration is available at: https://github.com/authorizerdev/authorizer-heroku.
-
-Clone the above repository.
-
-```sh
-git clone https://github.com/authorizerdev/authorizer-heroku
-cd authorizer-heroku
-```
-
-If you already have this, then pull the latest changes which will have the updated GraphQL engine Docker image.
-
-## Step 2: Attach Heroku app
-
-Let’s say your Heroku app is called authorizer-heroku and is running on https://authorizer-heroku.herokuapp.com.
-
-From inside the graphql-engine-heroku directory, use the Heroku CLI to configure the git repo you cloned in Step 1 to be able to push to this app.
-
-```sh
-# Replace <authorizer-heroku> with your Heroku app's name
-
-heroku git:remote -a <authorizer-heroku>
-heroku stack:set container -a <authorizer-heroku>
-```
-
-You can find your Heroku git repo in your Heroku - Settings - Info - Heroku Git URL
-
-## Step 3: git push to deploy the latest Authorizer GraphQL engine
-
-When you git push to deploy, the Heroku app will get updated with the latest changes:
-
-```sh
-git push heroku main
-```
+- You can find all the versions on [github](https://github.com/authorizerdev/authorizer/releases) or [dockerhub](https://hub.docker.com/r/lakhansamani/authorizer)
