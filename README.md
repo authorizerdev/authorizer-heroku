@@ -16,11 +16,23 @@ App name becomes the url for your application. Example if you have entered `auth
 
 Select the region you want to deploy you application in. Heroku supports United States and Europe only.
 
-## Step 3: Configure the Environment Variables
+## Step 3: Configure Required Variables
 
-Required envs are pre-configured, but based on the production and social logins, please configure the environment variables. Please refer to [environment variables docs](https://docs.authorizer.dev/core/env) for more information
+Authorizer v2 requires the following variables. Configure them in Heroku's **Config Vars** section:
 
-## 📝 Notes
+| Variable | Description | Example |
+| -------- | ----------- | ------- |
+| `DATABASE_TYPE` | Database type | `postgres` |
+| `DATABASE_URL` | Database connection string | *(auto-configured by Heroku add-on)* |
+| `JWT_TYPE` | JWT signing algorithm | `HS256` |
+| `JWT_SECRET` | JWT signing secret | `test` |
+| `ADMIN_SECRET` | Admin secret for admin operations | `admin` |
+| `CLIENT_ID` | Client identifier **(required)** | `123456` |
+| `CLIENT_SECRET` | Client secret **(required)** | `secret` |
+
+These are mapped to CLI flags at startup. Please refer to the [server configuration docs](https://docs.authorizer.dev/core/server-config) for all available flags.
+
+## Notes
 
 - Source repo: https://github.com/authorizerdev/authorizer
 - Docs: https://docs.authorizer.dev/deployment/heroku/

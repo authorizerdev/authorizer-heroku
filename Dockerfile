@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-FROM lakhansamani/authorizer:1.4.4
-
-CMD ./build/server --database_url $DATABASE_URL --database_type "postgres"
-=======
 # Base runs as USER authorizer (uid 1000). For SQLite, ensure mounted /data is writable by that user.
 FROM lakhansamani/authorizer:2.0.0-rc.6
 # Override so CMD runs in a shell and env vars (e.g. for Heroku) are expanded. See base image comment.
@@ -112,4 +107,3 @@ CMD ["./authorizer \\\n\
   --roblox-scopes=\"${ROBLOX_SCOPES}\" \\\n\
   --log-level=\"${LOG_LEVEL:-info}\" \\\n\
   --http-port=\"${PORT:-8080}\""]
->>>>>>> with-postgres-redis
