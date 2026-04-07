@@ -45,9 +45,48 @@
 			"required": true
 		},
 		"ADMIN_SECRET": {
-			"description": "Secret for admin API access. Keep this secret and do not commit it.",
+			"description": "Secret for admin API access. Required, must be non-empty (the previous insecure 'password' default has been removed in the April 2026 security release).",
 			"generator": "secret",
 			"required": true
+		},
+		"TRUSTED_PROXIES": {
+			"description": "Comma-separated CIDRs of reverse proxies whose X-Forwarded-For will be honoured. Heroku routes traffic through their own router, so set this to the Heroku router CIDR or per-IP rate limiting will key on the router IP. See https://docs.authorizer.dev/core/security#trusted-proxies",
+			"required": false
+		},
+		"REFRESH_TOKEN_EXPIRES_IN": {
+			"description": "Refresh-token lifetime in seconds. Default 2592000 (30 days).",
+			"value": "2592000",
+			"required": false
+		},
+		"ENABLE_HSTS": {
+			"description": "Set to 'true' to emit Strict-Transport-Security. Heroku terminates TLS at the router so this is safe to enable.",
+			"value": "false",
+			"required": false
+		},
+		"DISABLE_CSP": {
+			"description": "Set to 'true' to disable the default Content-Security-Policy header. Escape hatch only.",
+			"value": "false",
+			"required": false
+		},
+		"GRAPHQL_MAX_COMPLEXITY": {
+			"description": "Max total complexity score per GraphQL operation.",
+			"value": "300",
+			"required": false
+		},
+		"GRAPHQL_MAX_DEPTH": {
+			"description": "Max nesting depth of a GraphQL selection set.",
+			"value": "15",
+			"required": false
+		},
+		"GRAPHQL_MAX_ALIASES": {
+			"description": "Max aliased fields per GraphQL operation (defends against alias amplification).",
+			"value": "30",
+			"required": false
+		},
+		"GRAPHQL_MAX_BODY_BYTES": {
+			"description": "Max GraphQL request body size in bytes. Default 1048576 (1 MiB).",
+			"value": "1048576",
+			"required": false
 		}
 	},
 	"stack": "container"
