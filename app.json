@@ -49,6 +49,15 @@
 			"generator": "secret",
 			"required": true
 		},
+		"AUTHORIZER_URL": {
+			"description": "Canonical/trusted base URL of this deployment (e.g. https://your-app.herokuapp.com). When set, it is the only source used to build verification/reset/magic-link URLs, the JWT iss claim, and OIDC discovery URLs. Leaving it empty exposes host-header-injection account takeover (CWE-640) — set this once you know your Heroku app URL.",
+			"required": false
+		},
+		"OAUTH2_1_STRICT": {
+			"description": "Set to 'true' to enforce OAuth 2.1 restrictions (reject implicit/hybrid-with-token response types, require PKCE S256). Breaking; opt-in.",
+			"value": "false",
+			"required": false
+		},
 		"TRUSTED_PROXIES": {
 			"description": "Comma-separated CIDRs of reverse proxies whose X-Forwarded-For will be honoured. Heroku routes traffic through their own router, so set this to the Heroku router CIDR or per-IP rate limiting will key on the router IP. See https://docs.authorizer.dev/core/security#trusted-proxies",
 			"required": false
