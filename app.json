@@ -44,10 +44,24 @@
 			"generator": "secret",
 			"required": true
 		},
+		"ENCRYPTION_KEY": {
+			"description": "Encrypts TOTP secrets and OTP digests at rest. Required when JWT_TYPE is RS*/ES*; with HS* it falls back to JWT_SECRET, but a distinct value keeps JWT secret rotation from locking out enrolled TOTP users.",
+			"generator": "secret",
+			"required": false
+		},
 		"ADMIN_SECRET": {
 			"description": "Secret for admin API access. Required, must be non-empty (the previous insecure 'password' default has been removed in the April 2026 security release).",
 			"generator": "secret",
 			"required": true
+		},
+		"AUTHORIZER_URL": {
+			"description": "Canonical/trusted base URL of this deployment (e.g. https://your-app.herokuapp.com). When set, it is the only source used to build verification/reset/magic-link URLs, the JWT iss claim, and OIDC discovery URLs. Leaving it empty exposes host-header-injection account takeover (CWE-640) — set this once you know your Heroku app URL.",
+			"required": false
+		},
+		"OAUTH2_1_STRICT": {
+			"description": "Set to 'true' to enforce OAuth 2.1 restrictions (reject implicit/hybrid-with-token response types, require PKCE S256). Breaking; opt-in.",
+			"value": "false",
+			"required": false
 		},
 		"TRUSTED_PROXIES": {
 			"description": "Comma-separated CIDRs of reverse proxies whose X-Forwarded-For will be honoured. Heroku routes traffic through their own router, so set this to the Heroku router CIDR or per-IP rate limiting will key on the router IP. See https://docs.authorizer.dev/core/security#trusted-proxies",
