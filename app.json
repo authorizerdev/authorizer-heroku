@@ -55,8 +55,8 @@
 			"required": true
 		},
 		"AUTHORIZER_URL": {
-			"description": "Canonical/trusted base URL of this deployment (e.g. https://your-app.herokuapp.com). When set, it is the only source used to build verification/reset/magic-link URLs, the JWT iss claim, and OIDC discovery URLs. Leaving it empty exposes host-header-injection account takeover (CWE-640) — set this once you know your Heroku app URL.",
-			"required": false
+			"description": "REQUIRED. Canonical/trusted base URL of this deployment — https://<your-app-name>.herokuapp.com, using the app name you chose above. It is the only source used to build verification/reset/magic-link URLs, the JWT iss claim, and OIDC discovery URLs; deriving them from request headers instead exposes host-header-injection account takeover (CWE-640). The server exits at boot if this is empty or is not an absolute http(s) URL.",
+			"required": true
 		},
 		"MCP_ENABLED": {
 			"description": "Set to 'true' to serve the MCP tool surface over HTTP at POST <AUTHORIZER_URL>/mcp, as an OAuth 2.1 resource server for AI agents. REQUIRES AUTHORIZER_URL — the audience every MCP token is checked against is derived from it, so the server exits at boot if it is enabled without one. Off by default; it is a new internet-facing authenticated surface.",
