@@ -19,7 +19,10 @@
 			"quantity": 1
 		}
 	},
-	"addons": ["heroku-postgresql", "heroku-redis"],
+	"addons": [
+		"heroku-postgresql",
+		"heroku-redis"
+	],
 	"env": {
 		"DATABASE_TYPE": {
 			"description": "Database type (e.g. postgres, mysql). Must match your DATABASE_URL.",
@@ -44,10 +47,68 @@
 			"generator": "secret",
 			"required": true
 		},
+		"ENCRYPTION_KEY": {
+			"description": "Encrypts TOTP secrets and OTP digests at rest. Required when JWT_TYPE is RS*/ES*; with HS* it falls back to JWT_SECRET, but a distinct value keeps JWT secret rotation from locking out enrolled TOTP users.",
+			"generator": "secret",
+			"required": false
+		},
 		"ADMIN_SECRET": {
-			"description": "Secret for admin API access. Keep this secret and do not commit it.",
+			"description": "Secret for admin API access. Required, must be non-empty (the previous insecure 'password' default has been removed in the April 2026 security release).",
 			"generator": "secret",
 			"required": true
+		},
+		"AUTHORIZER_URL": {
+			"description": "Canonical/trusted base URL of this deployment (e.g. https://your-app.herokuapp.com). When set, it is the only source used to build verification/reset/magic-link URLs, the JWT iss claim, and OIDC discovery URLs. Leaving it empty exposes host-header-injection account takeover (CWE-640) — set this once you know your Heroku app URL.",
+			"required": false
+		},
+		"MCP_ENABLED": {
+			"description": "Set to 'true' to serve the MCP tool surface over HTTP at POST <AUTHORIZER_URL>/mcp, as an OAuth 2.1 resource server for AI agents. REQUIRES AUTHORIZER_URL — the audience every MCP token is checked against is derived from it, so the server exits at boot if it is enabled without one. Off by default; it is a new internet-facing authenticated surface.",
+			"value": "false",
+			"required": false
+		},
+		"OAUTH2_1_STRICT": {
+			"description": "Set to 'true' to enforce OAuth 2.1 restrictions (reject implicit/hybrid-with-token response types, require PKCE S256). Breaking; opt-in.",
+			"value": "false",
+			"required": false
+		},
+		"TRUSTED_PROXIES": {
+			"description": "Comma-separated CIDRs of reverse proxies whose X-Forwarded-For will be honoured. Heroku routes traffic through their own router, so set this to the Heroku router CIDR or per-IP rate limiting will key on the router IP. See https://docs.authorizer.dev/core/security#trusted-proxies",
+			"required": false
+		},
+		"REFRESH_TOKEN_EXPIRES_IN": {
+			"description": "Refresh-token lifetime in seconds. Default 2592000 (30 days).",
+			"value": "2592000",
+			"required": false
+		},
+		"ENABLE_HSTS": {
+			"description": "Set to 'true' to emit Strict-Transport-Security. Heroku terminates TLS at the router so this is safe to enable.",
+			"value": "false",
+			"required": false
+		},
+		"DISABLE_CSP": {
+			"description": "Set to 'true' to disable the default Content-Security-Policy header. Escape hatch only.",
+			"value": "false",
+			"required": false
+		},
+		"GRAPHQL_MAX_COMPLEXITY": {
+			"description": "Max total complexity score per GraphQL operation.",
+			"value": "300",
+			"required": false
+		},
+		"GRAPHQL_MAX_DEPTH": {
+			"description": "Max nesting depth of a GraphQL selection set.",
+			"value": "15",
+			"required": false
+		},
+		"GRAPHQL_MAX_ALIASES": {
+			"description": "Max aliased fields per GraphQL operation (defends against alias amplification).",
+			"value": "30",
+			"required": false
+		},
+		"GRAPHQL_MAX_BODY_BYTES": {
+			"description": "Max GraphQL request body size in bytes. Default 1048576 (1 MiB).",
+			"value": "1048576",
+			"required": false
 		}
 	},
 	"stack": "container"
