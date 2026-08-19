@@ -63,6 +63,10 @@
 			"value": "false",
 			"required": false
 		},
+		"REDIRECT_URIS": {
+			"description": "Comma-separated list of EXACT redirect URIs for this deployment's own client (the CLIENT_ID above) — e.g. https://your-app.herokuapp.com/app,https://yoursite.com/callback. Leave empty to keep the pre-2.4.0 behaviour, where redirect_uri is matched against ALLOWED_ORIGINS, which compares origins only: any path under an allowed host is accepted. This is not a per-app setting — list every callback your apps use, or those logins are refused with invalid redirect_uri. Entries that could never match (no scheme, a fragment, embedded user info) are rejected at boot.",
+			"required": false
+		},
 		"OAUTH2_1_STRICT": {
 			"description": "Set to 'true' to enforce OAuth 2.1 restrictions (reject implicit/hybrid-with-token response types, require PKCE S256). Breaking; opt-in.",
 			"value": "false",
